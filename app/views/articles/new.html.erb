@@ -4,9 +4,9 @@
     <div class="col-md-12">
       <%= form_for(@article, :html => {class: "form-horizontal", role: "form"}) do |f| %>
         <% if @article.errors.any? %>
-          <div class="card card-danger col-md-offset-1">
+          <div class="card bg-danger text-white">
             <div class="card-heading">
-              <h2 class="card-title">
+              <h2 class="card-title mx-auto">
                 <%= pluralize(@article.errors.count, "error") %>
                 prohibited this article from being saved:
               </h2>
@@ -23,13 +23,13 @@
           </div>
         <% end %>
         <div class="form-group">
-          <div class="col-md-2 control-label ">
+          <div class="col-md-2 form-control-label ">
             <%= f.label :title %>
           </div>
           <div class="col-md-10">
             <%= f.text_field :title, class: "form-control", placeholder: "Title of article", autofocus: true %>
           </div>
-          <div class="control-label col-md-2">
+          <div class="form-control-label col-md-2">
             <%= f.label :body %>
           </div>
           <div class="col-md-10">
