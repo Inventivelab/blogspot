@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <%= link_to "New Article", new_article_path, class: "btn btn-primary", id: "new-article-path" %>
+      <% if user_signed_in? %>
+        <%= link_to "New Article", new_article_path, class: "btn btn-primary", id: "new-article-path" %>
+      <% end %>
       <% if @articles.empty? %>
         <h1 id="no-articles">No Articles Created</h1>
       <% else %>
