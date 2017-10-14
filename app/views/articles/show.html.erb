@@ -19,7 +19,7 @@
       <% end %>
       <hr>
       <div class="comment-post">
-        <%= form_for [@article, @comment], :html => {class: "form-horizontal", role: "form"} do |f| %>
+        <%= form_for [@article, @comment], remote: true, :html => {class: "form-horizontal", role: "form"} do |f| %>
           <% if @comment.errors.any? %>
             <div class="card">
               <div class="card-block">
@@ -57,14 +57,19 @@
         <h2>Comment</h2>
         <div class="comment-main">
           <% if @article.comments.any? %>
-            <% persisted_comments(@comments).each do |comment| %>
-              <div class="comment-body">
-                <%= comment.body %>
-              </div>
-              <div class="comment-time">
-                <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.email %>
-              </div>
-            <% end %>
+            <div id="messages">
+              <% persisted_comments(@comments).each do |comment| %>
+                <div class="comment-body">
+                  <%= comment.body %>
+                </div>
+                <div class="comment-time">
+                  <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.email %>
+                </div>
+              <% end %>
+            </div>
+
+            <% else %>
+              <p>There are no comments to show</p>
           <% end %>
         </div>
       </div>
