@@ -14,7 +14,7 @@ RSpec.describe "Comments", type: :request do
       end
 
       it "redirect user to the signin page" do
-        flash_message = "Please signin or sign out first"
+        flash_message = "Please signin or sign up first"
         expect(response).to redirect_to(new_user_session_path)
         expect(response.status).to eq 302
         expect(flash[:alert]).to eq flash_message

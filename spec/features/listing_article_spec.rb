@@ -1,4 +1,5 @@
 require "rails_helper"
+#said => @said
 
 RSpec.feature "Listing Article" do
   before do
